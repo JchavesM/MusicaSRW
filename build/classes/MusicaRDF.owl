@@ -1,0 +1,721 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.musica.org#"
+     xml:base="http://www.musica.org"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:www="http://www.musica.org#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.musica.org"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.musica.org#Clasifica_A -->
+
+    <owl:ObjectProperty rdf:about="http://www.musica.org#Clasifica_A">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Obra"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Genero"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.musica.org#Compone_A -->
+
+    <owl:ObjectProperty rdf:about="http://www.musica.org#Compone_A">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Obra"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Compositor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.musica.org#Compuesta_Por -->
+
+    <owl:ObjectProperty rdf:about="http://www.musica.org#Compuesta_Por">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Compositor"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Obra"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.musica.org#Es_Una -->
+
+    <owl:ObjectProperty rdf:about="http://www.musica.org#Es_Una">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Cantante"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Compositor"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Persona"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.musica.org#Esencia_De -->
+
+    <owl:ObjectProperty rdf:about="http://www.musica.org#Esencia_De">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Persona"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Cantante"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Compositor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.musica.org#Interpreta_A -->
+
+    <owl:ObjectProperty rdf:about="http://www.musica.org#Interpreta_A">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Obra"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Cantante"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.musica.org#Interpretada_Por -->
+
+    <owl:ObjectProperty rdf:about="http://www.musica.org#Interpretada_Por">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Cantante"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Obra"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.musica.org#Posee_A -->
+
+    <owl:ObjectProperty rdf:about="http://www.musica.org#Posee_A">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.musica.org#Genero"/>
+        <rdfs:range rdf:resource="http://www.musica.org#Obra"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.musica.org#Apodo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Apodo">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Año_Obra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Año_Obra">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Cantante_obra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Cantante_obra">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Cedula -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Cedula">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Compositor_Obra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Compositor_Obra">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Genero_Obra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Genero_Obra">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Id_Cantante -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Id_Cantante">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Id_Compositor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Id_Compositor">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Id_Genero -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Id_Genero">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Id_Obra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Id_Obra">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Idioma_Obra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Idioma_Obra">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#N_Albumes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#N_Albumes">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#N_obras -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#N_obras">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Nombre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Nombre">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Pais -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Pais">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Sexo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Sexo">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.musica.org#Titulo_Obra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.musica.org#Titulo_Obra">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.musica.org#Cantante -->
+
+    <owl:Class rdf:about="http://www.musica.org#Cantante">
+        <rdfs:subClassOf rdf:resource="http://www.musica.org#Persona"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.musica.org#Compositor -->
+
+    <owl:Class rdf:about="http://www.musica.org#Compositor">
+        <rdfs:subClassOf rdf:resource="http://www.musica.org#Persona"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.musica.org#Genero -->
+
+    <owl:Class rdf:about="http://www.musica.org#Genero"/>
+    
+
+
+    <!-- http://www.musica.org#Obra -->
+
+    <owl:Class rdf:about="http://www.musica.org#Obra"/>
+    
+
+
+    <!-- http://www.musica.org#Persona -->
+
+    <owl:Class rdf:about="http://www.musica.org#Persona"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.musica.org#Cantante1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Cantante1">
+        <Apodo>Maluma</Apodo>
+        <Id_Cantante rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87624</Id_Cantante>
+        <N_Albumes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</N_Albumes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Cantante2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Cantante2">
+        <Apodo>Shakira</Apodo>
+        <Id_Cantante rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24654</Id_Cantante>
+        <N_Albumes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</N_Albumes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Cantante3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Cantante3">
+        <Apodo>Karol G</Apodo>
+        <Id_Cantante rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78924</Id_Cantante>
+        <N_Albumes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</N_Albumes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Cantante4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Cantante4">
+        <Id_Cantante rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54321</Id_Cantante>
+        <N_Albumes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</N_Albumes>
+        <Nombre>Becky G</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Cantante5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Cantante5">
+        <Apodo>Bad Bunny</Apodo>
+        <Id_Cantante rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</Id_Cantante>
+        <N_Albumes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</N_Albumes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Cantante6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Cantante6">
+        <Apodo>Juanes</Apodo>
+        <Id_Cantante rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54653</Id_Cantante>
+        <N_Albumes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</N_Albumes>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Cantante_7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Cantante_7">
+        <Id_Cantante rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86727</Id_Cantante>
+        <N_Albumes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</N_Albumes>
+        <Nombre>Madonna</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Compositor1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Compositor1">
+        <Apodo>Karol G</Apodo>
+        <Id_Compositor rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78924</Id_Compositor>
+        <N_obras rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</N_obras>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Compositor2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Compositor2">
+        <Apodo>Bad Bunny</Apodo>
+        <Id_Compositor rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</Id_Compositor>
+        <N_obras rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</N_obras>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Compositor3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Compositor3">
+        <Apodo>Maluma</Apodo>
+        <Id_Compositor rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87624</Id_Compositor>
+        <N_obras rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</N_obras>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Compositor4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Compositor4">
+        <Apodo>Becky G</Apodo>
+        <Id_Compositor rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54321</Id_Compositor>
+        <N_obras rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</N_obras>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Compositor5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Compositor5">
+        <Id_Compositor rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24654</Id_Compositor>
+        <N_obras rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</N_obras>
+        <Titulo_Obra>Shakira</Titulo_Obra>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Compositor6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Compositor6">
+        <Apodo>Juanes</Apodo>
+        <Id_Compositor rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54653</Id_Compositor>
+        <N_obras rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</N_obras>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Compositor7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Compositor7">
+        <Apodo>Madonna</Apodo>
+        <Id_Compositor rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86727</Id_Compositor>
+        <N_obras rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</N_obras>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Genero1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Genero1">
+        <owl:sameAs rdf:resource="http://www.musica.org#GeneroSame1"/>
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</Id_Genero>
+        <Nombre>Tropical</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Genero2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Genero2">
+        <owl:sameAs rdf:resource="http://www.musica.org#GeneroSame2"/>
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</Id_Genero>
+        <Nombre>Romántico</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Genero3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Genero3">
+        <owl:sameAs rdf:resource="http://www.musica.org#GeneroSame3"/>
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</Id_Genero>
+        <Nombre>Electronica</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Genero4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Genero4">
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</Id_Genero>
+        <Nombre>Rock</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Genero5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Genero5">
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</Id_Genero>
+        <Nombre>Despecho</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Genero6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Genero6">
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</Id_Genero>
+        <Nombre>Clasica</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Genero7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Genero7">
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</Id_Genero>
+        <Nombre>Rap</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#GeneroSame1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#GeneroSame1">
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</Id_Genero>
+        <Nombre>Salsa</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#GeneroSame2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#GeneroSame2">
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</Id_Genero>
+        <Nombre>Balada</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#GeneroSame3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#GeneroSame3">
+        <Id_Genero rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</Id_Genero>
+        <Nombre>House</Nombre>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Obra1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Obra1">
+        <Año_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2019</Año_Obra>
+        <Cantante_obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78924</Cantante_obra>
+        <Compositor_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</Compositor_Obra>
+        <Genero_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</Genero_Obra>
+        <Id_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9862</Id_Obra>
+        <Idioma_Obra>ES</Idioma_Obra>
+        <Titulo_Obra>Tusa</Titulo_Obra>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Obra2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Obra2">
+        <Año_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2018</Año_Obra>
+        <Cantante_obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</Cantante_obra>
+        <Compositor_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54321</Compositor_Obra>
+        <Genero_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</Genero_Obra>
+        <Id_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6379</Id_Obra>
+        <Idioma_Obra>ES</Idioma_Obra>
+        <Titulo_Obra>Morado</Titulo_Obra>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Obra3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Obra3">
+        <Año_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2011</Año_Obra>
+        <Cantante_obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87624</Cantante_obra>
+        <Compositor_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87624</Compositor_Obra>
+        <Genero_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</Genero_Obra>
+        <Id_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3097</Id_Obra>
+        <Idioma_Obra>US</Idioma_Obra>
+        <Titulo_Obra>Until the end</Titulo_Obra>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Obra4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Obra4">
+        <Año_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2005</Año_Obra>
+        <Cantante_obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</Cantante_obra>
+        <Compositor_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</Compositor_Obra>
+        <Genero_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</Genero_Obra>
+        <Id_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5327</Id_Obra>
+        <Idioma_Obra>US</Idioma_Obra>
+        <Titulo_Obra>Californication</Titulo_Obra>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Obra5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Obra5">
+        <Año_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2020</Año_Obra>
+        <Cantante_obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87624</Cantante_obra>
+        <Compositor_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78924</Compositor_Obra>
+        <Genero_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</Genero_Obra>
+        <Id_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5238</Id_Obra>
+        <Idioma_Obra>FR</Idioma_Obra>
+        <Titulo_Obra>Legendary</Titulo_Obra>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Obra6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Obra6">
+        <Año_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2005</Año_Obra>
+        <Cantante_obra>Juanes</Cantante_obra>
+        <Compositor_Obra>Madonna</Compositor_Obra>
+        <Genero_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</Genero_Obra>
+        <Id_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6544</Id_Obra>
+        <Idioma_Obra>ES</Idioma_Obra>
+        <Titulo_Obra>Camisa Negra</Titulo_Obra>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Obra7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Obra7">
+        <Año_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2019</Año_Obra>
+        <Cantante_obra>Madonna</Cantante_obra>
+        <Compositor_Obra>Juanes</Compositor_Obra>
+        <Genero_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</Genero_Obra>
+        <Id_Obra rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1226</Id_Obra>
+        <Idioma_Obra>US</Idioma_Obra>
+        <Titulo_Obra>Wombass</Titulo_Obra>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Persona1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Persona1">
+        <Cedula rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12345</Cedula>
+        <Nombre>Miguel</Nombre>
+        <Pais>Colombia</Pais>
+        <Sexo>Masculino</Sexo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Persona2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Persona2">
+        <Cedula rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54321</Cedula>
+        <Nombre>Andrea</Nombre>
+        <Pais>Argentina</Pais>
+        <Sexo>Femenino</Sexo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Persona3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Persona3">
+        <Cedula rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24654</Cedula>
+        <Nombre>Ana</Nombre>
+        <Pais>Canada</Pais>
+        <Sexo>Femenino</Sexo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Persona4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Persona4">
+        <Cedula rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87624</Cedula>
+        <Nombre>Oliver</Nombre>
+        <Pais>Paises Bajos</Pais>
+        <Sexo>Masculino</Sexo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Persona5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Persona5">
+        <Cedula rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78924</Cedula>
+        <Nombre>Carolina Giraldo</Nombre>
+        <Pais>España</Pais>
+        <Sexo>Femenino</Sexo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Persona6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Persona6">
+        <Cedula rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54653</Cedula>
+        <Nombre>Esteban</Nombre>
+        <Pais>Francia</Pais>
+        <Sexo>Masculino</Sexo>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.musica.org#Persona7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.musica.org#Persona7">
+        <Cedula rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86727</Cedula>
+        <Nombre>Daniela</Nombre>
+        <Pais>Alemania</Pais>
+        <Sexo>Femenino</Sexo>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

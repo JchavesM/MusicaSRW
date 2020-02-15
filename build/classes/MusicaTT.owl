@@ -59,7 +59,7 @@ www:Interpreta_A rdf:type owl:ObjectProperty ,
 
 ###  http://www.musica.org#Interpretada_Por
 www:Interpretada_Por rdf:type owl:ObjectProperty ,
-                              owl:SymmetricProperty ;
+                              owl:AsymmetricProperty ;
                      rdfs:domain www:Cantante ;
                      rdfs:range www:Obra .
 
@@ -222,68 +222,211 @@ www:Cantante4 rdf:type owl:NamedIndividual ;
 ###  http://www.musica.org#Cantante5
 www:Cantante5 rdf:type owl:NamedIndividual ;
               www:Apodo "Bad Bunny" ;
-              www:Id_Cantante 12345 ,
-                              8 .
+              www:Id_Cantante 12345 ;
+              www:N_Albumes 8 .
+
+
+###  http://www.musica.org#Cantante6
+www:Cantante6 rdf:type owl:NamedIndividual ;
+              www:Apodo "Juanes" ;
+              www:Id_Cantante 54653 ;
+              www:N_Albumes 8 .
+
+
+###  http://www.musica.org#Cantante_7
+www:Cantante_7 rdf:type owl:NamedIndividual ;
+               www:Id_Cantante 86727 ;
+               www:N_Albumes 12 ;
+               www:Nombre "Madonna" .
 
 
 ###  http://www.musica.org#Compositor1
-www:Compositor1 rdf:type owl:NamedIndividual .
+www:Compositor1 rdf:type owl:NamedIndividual ;
+                www:Apodo "Karol G" ;
+                www:Id_Compositor 78924 ;
+                www:N_obras 12 .
 
 
 ###  http://www.musica.org#Compositor2
-www:Compositor2 rdf:type owl:NamedIndividual .
+www:Compositor2 rdf:type owl:NamedIndividual ;
+                www:Apodo "Bad Bunny" ;
+                www:Id_Compositor 12345 ;
+                www:N_obras 20 .
 
 
 ###  http://www.musica.org#Compositor3
-www:Compositor3 rdf:type owl:NamedIndividual .
+www:Compositor3 rdf:type owl:NamedIndividual ;
+                www:Apodo "Maluma" ;
+                www:Id_Compositor 87624 ;
+                www:N_obras 15 .
 
 
 ###  http://www.musica.org#Compositor4
-www:Compositor4 rdf:type owl:NamedIndividual .
+www:Compositor4 rdf:type owl:NamedIndividual ;
+                www:Apodo "Becky G" ;
+                www:Id_Compositor 54321 ;
+                www:N_obras 7 .
 
 
 ###  http://www.musica.org#Compositor5
-www:Compositor5 rdf:type owl:NamedIndividual .
+www:Compositor5 rdf:type owl:NamedIndividual ;
+                www:Id_Compositor 24654 ;
+                www:N_obras 4 ;
+                www:Titulo_Obra "Shakira" .
+
+
+###  http://www.musica.org#Compositor6
+www:Compositor6 rdf:type owl:NamedIndividual ;
+                www:Apodo "Juanes" ;
+                www:Id_Compositor 54653 ;
+                www:N_obras 11 .
+
+
+###  http://www.musica.org#Compositor7
+www:Compositor7 rdf:type owl:NamedIndividual ;
+                www:Apodo "Madonna" ;
+                www:Id_Compositor 86727 ;
+                www:N_obras 2 .
 
 
 ###  http://www.musica.org#Genero1
-www:Genero1 rdf:type owl:NamedIndividual .
+www:Genero1 rdf:type owl:NamedIndividual ;
+            owl:sameAs www:GeneroSame1 ;
+            www:Id_Genero 1 ;
+            www:Nombre "Tropical" .
 
 
 ###  http://www.musica.org#Genero2
-www:Genero2 rdf:type owl:NamedIndividual .
+www:Genero2 rdf:type owl:NamedIndividual ;
+            owl:sameAs www:GeneroSame2 ;
+            www:Id_Genero 10 ;
+            www:Nombre "Romántico" .
 
 
 ###  http://www.musica.org#Genero3
-www:Genero3 rdf:type owl:NamedIndividual .
+www:Genero3 rdf:type owl:NamedIndividual ;
+            owl:sameAs www:GeneroSame3 ;
+            www:Id_Genero 5 ;
+            www:Nombre "Electronica" .
 
 
 ###  http://www.musica.org#Genero4
-www:Genero4 rdf:type owl:NamedIndividual .
+www:Genero4 rdf:type owl:NamedIndividual ;
+            www:Id_Genero 13 ;
+            www:Nombre "Rock" .
 
 
 ###  http://www.musica.org#Genero5
-www:Genero5 rdf:type owl:NamedIndividual .
+www:Genero5 rdf:type owl:NamedIndividual ;
+            www:Id_Genero 33 ;
+            www:Nombre "Despecho" .
+
+
+###  http://www.musica.org#Genero6
+www:Genero6 rdf:type owl:NamedIndividual ;
+            www:Id_Genero 20 ;
+            www:Nombre "Clasica" .
+
+
+###  http://www.musica.org#Genero7
+www:Genero7 rdf:type owl:NamedIndividual ;
+            www:Id_Genero 13 ;
+            www:Nombre "Rap" .
+
+
+###  http://www.musica.org#GeneroSame1
+www:GeneroSame1 rdf:type owl:NamedIndividual ;
+                www:Id_Genero 1 ;
+                www:Nombre "Salsa" .
+
+
+###  http://www.musica.org#GeneroSame2
+www:GeneroSame2 rdf:type owl:NamedIndividual ;
+                www:Id_Genero 10 ;
+                www:Nombre "Balada" .
+
+
+###  http://www.musica.org#GeneroSame3
+www:GeneroSame3 rdf:type owl:NamedIndividual ;
+                www:Id_Genero 5 ;
+                www:Nombre "House" .
 
 
 ###  http://www.musica.org#Obra1
-www:Obra1 rdf:type owl:NamedIndividual .
+www:Obra1 rdf:type owl:NamedIndividual ;
+          www:Año_Obra 2019 ;
+          www:Cantante_obra 78924 ;
+          www:Compositor_Obra 12345 ;
+          www:Genero_Obra 33 ;
+          www:Id_Obra 9862 ;
+          www:Idioma_Obra "ES" ;
+          www:Titulo_Obra "Tusa" .
 
 
 ###  http://www.musica.org#Obra2
-www:Obra2 rdf:type owl:NamedIndividual .
+www:Obra2 rdf:type owl:NamedIndividual ;
+          www:Año_Obra 2018 ;
+          www:Cantante_obra 12345 ;
+          www:Compositor_Obra 54321 ;
+          www:Genero_Obra 13 ;
+          www:Id_Obra 6379 ;
+          www:Idioma_Obra "ES" ;
+          www:Titulo_Obra "Morado" .
 
 
 ###  http://www.musica.org#Obra3
-www:Obra3 rdf:type owl:NamedIndividual .
+www:Obra3 rdf:type owl:NamedIndividual ;
+          www:Año_Obra 2011 ;
+          www:Cantante_obra 87624 ;
+          www:Compositor_Obra 87624 ;
+          www:Genero_Obra 5 ;
+          www:Id_Obra 3097 ;
+          www:Idioma_Obra "US" ;
+          www:Titulo_Obra "Until the end" .
 
 
 ###  http://www.musica.org#Obra4
-www:Obra4 rdf:type owl:NamedIndividual .
+www:Obra4 rdf:type owl:NamedIndividual ;
+          www:Año_Obra 2005 ;
+          www:Cantante_obra 12345 ;
+          www:Compositor_Obra 12345 ;
+          www:Genero_Obra 10 ;
+          www:Id_Obra 5327 ;
+          www:Idioma_Obra "US" ;
+          www:Titulo_Obra "Californication" .
 
 
 ###  http://www.musica.org#Obra5
-www:Obra5 rdf:type owl:NamedIndividual .
+www:Obra5 rdf:type owl:NamedIndividual ;
+          www:Año_Obra 2020 ;
+          www:Cantante_obra 87624 ;
+          www:Compositor_Obra 78924 ;
+          www:Genero_Obra 1 ;
+          www:Id_Obra 5238 ;
+          www:Idioma_Obra "FR" ;
+          www:Titulo_Obra "Legendary" .
+
+
+###  http://www.musica.org#Obra6
+www:Obra6 rdf:type owl:NamedIndividual ;
+          www:Año_Obra 2005 ;
+          www:Cantante_obra "Juanes" ;
+          www:Compositor_Obra "Madonna" ;
+          www:Genero_Obra 20 ;
+          www:Id_Obra 6544 ;
+          www:Idioma_Obra "ES" ;
+          www:Titulo_Obra "Camisa Negra" .
+
+
+###  http://www.musica.org#Obra7
+www:Obra7 rdf:type owl:NamedIndividual ;
+          www:Año_Obra 2019 ;
+          www:Cantante_obra "Madonna" ;
+          www:Compositor_Obra "Juanes" ;
+          www:Genero_Obra 13 ;
+          www:Id_Obra 1226 ;
+          www:Idioma_Obra "US" ;
+          www:Titulo_Obra "Wombass" .
 
 
 ###  http://www.musica.org#Persona1
@@ -323,6 +466,22 @@ www:Persona5 rdf:type owl:NamedIndividual ;
              www:Cedula 78924 ;
              www:Nombre "Carolina Giraldo" ;
              www:Pais "España" ;
+             www:Sexo "Femenino" .
+
+
+###  http://www.musica.org#Persona6
+www:Persona6 rdf:type owl:NamedIndividual ;
+             www:Cedula 54653 ;
+             www:Nombre "Esteban" ;
+             www:Pais "Francia" ;
+             www:Sexo "Masculino" .
+
+
+###  http://www.musica.org#Persona7
+www:Persona7 rdf:type owl:NamedIndividual ;
+             www:Cedula 86727 ;
+             www:Nombre "Daniela" ;
+             www:Pais "Alemania" ;
              www:Sexo "Femenino" .
 
 
