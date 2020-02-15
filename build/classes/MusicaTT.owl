@@ -1,0 +1,329 @@
+@prefix : <http://www.musica.org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix www: <http://www.musica.org#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.musica.org> .
+
+<http://www.musica.org> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.musica.org#Clasifica_A
+www:Clasifica_A rdf:type owl:ObjectProperty ,
+                         owl:AsymmetricProperty ;
+                rdfs:domain www:Obra ;
+                rdfs:range www:Genero .
+
+
+###  http://www.musica.org#Compone_A
+www:Compone_A rdf:type owl:ObjectProperty ,
+                       owl:AsymmetricProperty ;
+              rdfs:domain www:Obra ;
+              rdfs:range www:Compositor .
+
+
+###  http://www.musica.org#Compuesta_Por
+www:Compuesta_Por rdf:type owl:ObjectProperty ,
+                           owl:AsymmetricProperty ;
+                  rdfs:domain www:Compositor ;
+                  rdfs:range www:Obra .
+
+
+###  http://www.musica.org#Es_Una
+www:Es_Una rdf:type owl:ObjectProperty ,
+                    owl:AsymmetricProperty ;
+           rdfs:domain www:Cantante ,
+                       www:Compositor ;
+           rdfs:range www:Persona .
+
+
+###  http://www.musica.org#Esencia_De
+www:Esencia_De rdf:type owl:ObjectProperty ,
+                        owl:AsymmetricProperty ;
+               rdfs:domain www:Persona ;
+               rdfs:range www:Cantante ,
+                          www:Compositor .
+
+
+###  http://www.musica.org#Interpreta_A
+www:Interpreta_A rdf:type owl:ObjectProperty ,
+                          owl:AsymmetricProperty ;
+                 rdfs:domain www:Obra ;
+                 rdfs:range www:Cantante .
+
+
+###  http://www.musica.org#Interpretada_Por
+www:Interpretada_Por rdf:type owl:ObjectProperty ,
+                              owl:SymmetricProperty ;
+                     rdfs:domain www:Cantante ;
+                     rdfs:range www:Obra .
+
+
+###  http://www.musica.org#Posee_A
+www:Posee_A rdf:type owl:ObjectProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain www:Genero ;
+            rdfs:range www:Obra .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.musica.org#Apodo
+www:Apodo rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string .
+
+
+###  http://www.musica.org#Año_Obra
+www:Año_Obra rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:integer .
+
+
+###  http://www.musica.org#Cantante_obra
+www:Cantante_obra rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.musica.org#Cedula
+www:Cedula rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:long .
+
+
+###  http://www.musica.org#Compositor_Obra
+www:Compositor_Obra rdf:type owl:DatatypeProperty ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.musica.org#Genero_Obra
+www:Genero_Obra rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:string .
+
+
+###  http://www.musica.org#Id_Cantante
+www:Id_Cantante rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.musica.org#Id_Compositor
+www:Id_Compositor rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:integer .
+
+
+###  http://www.musica.org#Id_Genero
+www:Id_Genero rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:integer .
+
+
+###  http://www.musica.org#Id_Obra
+www:Id_Obra rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.musica.org#Idioma_Obra
+www:Idioma_Obra rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:string .
+
+
+###  http://www.musica.org#N_Albumes
+www:N_Albumes rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:integer .
+
+
+###  http://www.musica.org#N_obras
+www:N_obras rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:integer .
+
+
+###  http://www.musica.org#Nombre
+www:Nombre rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:range xsd:string .
+
+
+###  http://www.musica.org#Pais
+www:Pais rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string .
+
+
+###  http://www.musica.org#Sexo
+www:Sexo rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string .
+
+
+###  http://www.musica.org#Titulo_Obra
+www:Titulo_Obra rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.musica.org#Cantante
+www:Cantante rdf:type owl:Class ;
+             rdfs:subClassOf www:Persona .
+
+
+###  http://www.musica.org#Compositor
+www:Compositor rdf:type owl:Class ;
+               rdfs:subClassOf www:Persona .
+
+
+###  http://www.musica.org#Genero
+www:Genero rdf:type owl:Class .
+
+
+###  http://www.musica.org#Obra
+www:Obra rdf:type owl:Class .
+
+
+###  http://www.musica.org#Persona
+www:Persona rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.musica.org#Cantante1
+www:Cantante1 rdf:type owl:NamedIndividual ;
+              www:Apodo "Maluma" ;
+              www:Id_Cantante 87624 ;
+              www:N_Albumes 10 .
+
+
+###  http://www.musica.org#Cantante2
+www:Cantante2 rdf:type owl:NamedIndividual ;
+              www:Apodo "Shakira" ;
+              www:Id_Cantante 24654 ;
+              www:N_Albumes 6 .
+
+
+###  http://www.musica.org#Cantante3
+www:Cantante3 rdf:type owl:NamedIndividual ;
+              www:Apodo "Karol G" ;
+              www:Id_Cantante 78924 ;
+              www:N_Albumes 4 .
+
+
+###  http://www.musica.org#Cantante4
+www:Cantante4 rdf:type owl:NamedIndividual ;
+              www:Id_Cantante 54321 ;
+              www:N_Albumes 15 ;
+              www:Nombre "Becky G" .
+
+
+###  http://www.musica.org#Cantante5
+www:Cantante5 rdf:type owl:NamedIndividual ;
+              www:Apodo "Bad Bunny" ;
+              www:Id_Cantante 12345 ,
+                              8 .
+
+
+###  http://www.musica.org#Compositor1
+www:Compositor1 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Compositor2
+www:Compositor2 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Compositor3
+www:Compositor3 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Compositor4
+www:Compositor4 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Compositor5
+www:Compositor5 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Genero1
+www:Genero1 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Genero2
+www:Genero2 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Genero3
+www:Genero3 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Genero4
+www:Genero4 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Genero5
+www:Genero5 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Obra1
+www:Obra1 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Obra2
+www:Obra2 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Obra3
+www:Obra3 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Obra4
+www:Obra4 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Obra5
+www:Obra5 rdf:type owl:NamedIndividual .
+
+
+###  http://www.musica.org#Persona1
+www:Persona1 rdf:type owl:NamedIndividual ;
+             www:Cedula 12345 ;
+             www:Nombre "Miguel" ;
+             www:Pais "Colombia" ;
+             www:Sexo "Masculino" .
+
+
+###  http://www.musica.org#Persona2
+www:Persona2 rdf:type owl:NamedIndividual ;
+             www:Cedula 54321 ;
+             www:Nombre "Andrea" ;
+             www:Pais "Argentina" ;
+             www:Sexo "Femenino" .
+
+
+###  http://www.musica.org#Persona3
+www:Persona3 rdf:type owl:NamedIndividual ;
+             www:Cedula 24654 ;
+             www:Nombre "Ana" ;
+             www:Pais "Canada" ;
+             www:Sexo "Femenino" .
+
+
+###  http://www.musica.org#Persona4
+www:Persona4 rdf:type owl:NamedIndividual ;
+             www:Cedula 87624 ;
+             www:Nombre "Oliver" ;
+             www:Pais "Paises Bajos" ;
+             www:Sexo "Masculino" .
+
+
+###  http://www.musica.org#Persona5
+www:Persona5 rdf:type owl:NamedIndividual ;
+             www:Cedula 78924 ;
+             www:Nombre "Carolina Giraldo" ;
+             www:Pais "España" ;
+             www:Sexo "Femenino" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

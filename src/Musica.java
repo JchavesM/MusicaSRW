@@ -10,20 +10,38 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Iterator;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.reasoner.ValidityReport;
 
 public class Musica {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		// TODO Auto-generated method stub
-		//Model model = ModelFactory.createDefaultModel();
+
+//                Cargando el modelo turtle/owl
 		Model model = ModelFactory.createDefaultModel();
-		InputStream in = FileManager.get().open("Data.owl");
+		InputStream in = FileManager.get().open("MusicaTT.owl");
 		model.read(in, null, "TURTLE");
-		
-		Reasoner RDFSreasoner = ReasonerRegistry.getRDFSReasoner();
+
+//                Creando un doc rdf
+                Reasoner RDFSreasoner = ReasonerRegistry.getRDFSReasoner();
 		InfModel RDFSinfe = ModelFactory.createInfModel(RDFSreasoner, model);
-		OutputStream RDFSos = new FileOutputStream("Data_RDFSreasoner.rdf");
+		OutputStream RDFSos = new FileOutputStream("Musica_RDFSreasoner.rdf");
 		RDFSinfe.write(RDFSos, "RDF/XML");
+                
+
+//                Model data = FileManager.get().loadModel("./Musica_RDFSreasoner.rdf");
+//                InfModel infmodel = ModelFactory.createRDFSModel(data);
+//                ValidityReport validity = infmodel.validate();
+//                if (validity.isValid()) {
+//                System.out.println("OK");
+//                } else {
+//                System.out.println("Errores: ");
+//                for (Iterator i = validity.getReports(); i.hasNext(); ) {
+//                System.out.println(" - " + i.next());
+//                }
+//                }
+                
 	}
 
 }
