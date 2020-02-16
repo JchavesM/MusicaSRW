@@ -32,17 +32,19 @@ public class Musica {
 "SELECT DISTINCT *" + 
 "WHERE " + 
 "{ " + 
-"?entidad <http://www.musica.org#Cedula> ?id ." + 
+"?entidad a <http://www.musica.org#Cantante> ." + 
 "?entidad ?atributo ?valor ." + 
-"?atributo ?b owl:DatatypeProperty ." + 
-"} ORDER BY ?entidad" 
+"?atributo a owl:DatatypeProperty ." + 
+"" + 
+"" + 
+"} ORDER BY ?entidad"
 
 + 
 "";
         
-//        Query(data);
-        System.out.println(Filter("peso", "<", "50"));
-        System.out.println(Filter("Nombre", "contain", "Hola"));
+        Query(data);
+//        System.out.println(Filter("peso", "<", "50"));
+//        System.out.println(Filter("Nombre", "contain", "Hola"));
     }
         
         public static void Query(String data) {
