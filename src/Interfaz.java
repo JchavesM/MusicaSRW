@@ -378,6 +378,19 @@ public class Interfaz extends javax.swing.JFrame {
         String entidad2 = entidadEntrada2.getText();
         String instancia2 = instanciaEntrada2.getText();
         
+       String data = 
+                        "     ASK WHERE { " + 
+                        "     ?entidad a <http://www.musica.org#"+ entidad +"> ." + 
+                        "     ?entidad ?x ?y." + 
+                        "     FILTER REGEX(?y, \""+ instancia +"\")." + 
+                        "     ?entidad2 a <http://www.musica.org#"+ entidad2 +"> ." + 
+                        "     ?entidad2 ?z ?w." + 
+                        "     FILTER REGEX(?w, \""+ instancia2 +"\")" + 
+                        "     " + 
+                        "}";
+       System.out.println(data);
+       Query3(data);
+        
     }//GEN-LAST:event_botonRelacionDirectaInsActionPerformed
 
     private void botonRelacionIndirectaInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRelacionIndirectaInsActionPerformed
@@ -475,6 +488,31 @@ public class Interfaz extends javax.swing.JFrame {
                                 Literal x = soln.getLiteral("parametro");
                                 TextSalida.append(soln.getResource("individuo") + "\t" + x.getString()+"\n");
 			}
+		} finally {
+			qexec.close();
+		}
+        }
+    
+        public void Query3(String data) {
+            Model model = ModelFactory.createDefaultModel();
+		InputStream in = FileManager.get().open("MusicaRDF.owl");
+		model.read(in, null, "RDF/XML");
+		String querys;
+		querys=         "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +  
+		  		"PREFIX owl: <http://www.w3.org/2002/07/owl#>" + 
+		  		"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" + 
+		  		"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" + 
+		  		"PREFIX m: <http://musica.org#>" + data;
+		Query query = QueryFactory.create(querys);
+		QueryExecution qexec = QueryExecutionFactory.create(query, model);
+		try {
+			boolean resultado = qexec.execAsk();
+                        if (resultado){
+                            TextSalida.append("Hay relacion");
+                        }
+                        else{
+                            TextSalida.append("No hay relacion");
+                        }
 		} finally {
 			qexec.close();
 		}
