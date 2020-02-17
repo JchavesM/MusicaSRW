@@ -333,6 +333,16 @@ public class Interfaz extends javax.swing.JFrame {
         TextSalida.setText("");
         String entidad = entidadEntrada.getText();
         String instancia = instanciaEntrada.getText();
+        
+        String data = "SELECT DISTINCT *" + 
+                        "WHERE { ?x a owl:Class ." + 
+                        "?y rdfs:subClassOf ?x ." + 
+                        "?instancia a ?y" + 
+                        "}";
+        
+        if (entidad.toLowerCase().equals("persona")){
+            Query4(data);
+        }
     }//GEN-LAST:event_botonRelacionesIndirectasActionPerformed
 
     private void busquedaBotonAtributoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaBotonAtributoActionPerformed
@@ -513,6 +523,30 @@ public class Interfaz extends javax.swing.JFrame {
                         else{
                             TextSalida.append("No hay relacion");
                         }
+		} finally {
+			qexec.close();
+		}
+        }
+        
+        public void Query4(String data) {
+            Model model = ModelFactory.createDefaultModel();
+		InputStream in = FileManager.get().open("MusicaRDF.owl");
+		model.read(in, null, "RDF/XML");
+		String querys;
+		querys=         "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +  
+		  		"PREFIX owl: <http://www.w3.org/2002/07/owl#>" + 
+		  		"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" + 
+		  		"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" + 
+		  		"PREFIX m: <http://musica.org#>" + data;
+		Query query = QueryFactory.create(querys);
+		QueryExecution qexec = QueryExecutionFactory.create(query, model);
+		try {
+			ResultSet results =qexec.execSelect();
+			while (results.hasNext()){
+				QuerySolution soln =results.nextSolution();
+                                //Literal x = soln.getLiteral("parametro");
+                                TextSalida.append(soln.getResource("instancia") + "\n");
+			}
 		} finally {
 			qexec.close();
 		}
