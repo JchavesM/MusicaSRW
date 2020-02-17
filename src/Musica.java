@@ -29,22 +29,16 @@ public class Musica {
         
         String data = 
                 
-"SELECT DISTINCT *" + 
-"WHERE " + 
-"{ " + 
-"?entidad a <http://www.musica.org#Cantante> ." + 
-"?entidad ?atributo ?valor ." + 
-"?atributo a owl:DatatypeProperty ." + 
-"" + 
-"" + 
-"} ORDER BY ?entidad"
-
-+ 
-"";
+            "SELECT *" + 
+            "WHERE{" + 
+            "?individuo a <http://www.musica.org#Obra> ." + 
+            "?individuo <http://www.musica.org#Id_Obra> ?parametro." + 
+            "FILTER(?parametro=3097)." + 
+            "}";
         
         Query(data);
-//        System.out.println(Filter("peso", "<", "50"));
-//        System.out.println(Filter("Nombre", "contain", "Hola"));
+        //System.out.println(Filter("peso", "<", "50"));
+        //System.out.println(Filter("Nombre", "contain", "Hola"));
     }
         
         public static void Query(String data) {
@@ -52,19 +46,19 @@ public class Musica {
 		InputStream in = FileManager.get().open("MusicaRDF.owl");
 		model.read(in, null, "RDF/XML");
 		String querys;
-		querys="PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +  
+		querys=         "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +  
 		  		"PREFIX owl: <http://www.w3.org/2002/07/owl#>" + 
 		  		"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" + 
 		  		"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" + 
-		  		"PREFIX p: <http://musica.org#>" + data;
+		  		"PREFIX m: <http://musica.org#>" + data;
 		Query query = QueryFactory.create(querys);
 		QueryExecution qexec = QueryExecutionFactory.create(query, model);
 		try {
 			ResultSet results =qexec.execSelect();
 			while (results.hasNext()){
 				QuerySolution soln =results.nextSolution();
-                                Literal x = soln.getLiteral("valor");
-                                System.out.println(soln.getResource("entidad") + "\t" + soln.getResource("atributo") + "\t" + x.getString());
+                                Literal x = soln.getLiteral("parametro");
+                                System.out.println(soln.getResource("individuo") + "\t" + soln.getResource("atributo") + "\t" + x.getString());
 			}
 		} finally {
 			qexec.close();

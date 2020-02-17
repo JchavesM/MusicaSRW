@@ -8,6 +8,32 @@
  *
  * @author David Andrés Calle
  */
+
+import org.apache.jena.rdf.model.InfModel;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.reasoner.Reasoner;
+import org.apache.jena.reasoner.ReasonerRegistry;
+import org.apache.jena.util.FileManager;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Iterator;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+
+import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.reasoner.ValidityReport;
+
 public class Interfaz extends javax.swing.JFrame {
 
     /**
@@ -258,15 +284,41 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void BotonInstanciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInstanciasActionPerformed
         String entidad = entidadEntrada.getText();
+        String atributo = atributoEntrada.getText();
+        String filtro = filtroEntrada.getText();
         TextSalida.setText("");      
         
         if (filtroEntrada.getText() == null || filtroEntrada.getText().trim().isEmpty() ){
-            TextSalida.append(entidad + "\n\r");
-            TextSalida.append("Sin filtro");      
+            
+            String data =   "SELECT DISTINCT *" + 
+                            "WHERE " + 
+                            "{ " + 
+                            "?entidad a <http://www.musica.org#"+ entidad +"> ." + 
+                            "?entidad ?atributo ?valor ." + 
+                            "?atributo a owl:DatatypeProperty ." + 
+                            "" + 
+                            "" + 
+                            "} ORDER BY ?entidad"
+
+                            + 
+                            "";
+           Query1(data);
         }
         else{
-            TextSalida.append(entidad + "\n\r");
-            TextSalida.append("Con filtro");
+            String data =   "SELECT DISTINCT * " + 
+                            "WHERE " + 
+                            "{ " + 
+                            "?entidad a <http://www.musica.org#"+ entidad +"> ." + 
+                            "?entidad ?atributo ?valor ." + 
+                            " ?atributo a owl:DatatypeProperty ." + 
+                            "" + 
+                            "" +
+                            "FILTER REGEX(?valor ,\""+ atributo +"\")" + 
+                            "}"
+
+                            + 
+                            "";
+            Query1(data);
         }
     }//GEN-LAST:event_BotonInstanciasActionPerformed
 
@@ -288,6 +340,20 @@ public class Interfaz extends javax.swing.JFrame {
         String entidad = entidadEntrada.getText();
         String instancia = instanciaEntrada.getText();
         String atributo = atributoEntrada.getText();
+        
+        String data = 
+                
+            "SELECT *" + 
+            "WHERE{" + 
+            "?individuo a <http://www.musica.org#"+ entidad +"> ." + 
+            "?individuo <http://www.musica.org#"+ instancia +"> ?parametro." + 
+            "FILTER(?parametro="+ atributo +")." + 
+            "}";
+        
+        Query2(data);
+        //System.out.println(Filter("peso", "<", "50"));
+        //System.out.println(Filter("Nombre", "contain", "Hola"));
+        
     }//GEN-LAST:event_busquedaBotonAtributoActionPerformed
 
     private void botonEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEstadisticasActionPerformed
@@ -365,6 +431,66 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
     }
+    
+        public void Query1(String data) {
+            Model model = ModelFactory.createDefaultModel();
+		InputStream in = FileManager.get().open("MusicaRDF.owl");
+		model.read(in, null, "RDF/XML");
+		String querys;
+		querys=         "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +  
+		  		"PREFIX owl: <http://www.w3.org/2002/07/owl#>" + 
+		  		"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" + 
+		  		"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" + 
+		  		"PREFIX p: <http://musica.org#>" + data;
+		Query query = QueryFactory.create(querys);
+		QueryExecution qexec = QueryExecutionFactory.create(query, model);
+		try {
+			ResultSet results =qexec.execSelect();
+			while (results.hasNext()){
+				QuerySolution soln =results.nextSolution();
+                                Literal x = soln.getLiteral("valor");
+                                TextSalida.append(soln.getResource("entidad") + "\t" + soln.getResource("atributo") + "\t" + x.getString()+ "\n");
+			}
+		} finally {
+			qexec.close();
+		}
+        }
+    
+    public void Query2(String data) {
+            Model model = ModelFactory.createDefaultModel();
+		InputStream in = FileManager.get().open("MusicaRDF.owl");
+		model.read(in, null, "RDF/XML");
+		String querys;
+		querys=         "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +  
+		  		"PREFIX owl: <http://www.w3.org/2002/07/owl#>" + 
+		  		"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" + 
+		  		"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>" + 
+		  		"PREFIX m: <http://musica.org#>" + data;
+		Query query = QueryFactory.create(querys);
+		QueryExecution qexec = QueryExecutionFactory.create(query, model);
+		try {
+			ResultSet results =qexec.execSelect();
+			while (results.hasNext()){
+				QuerySolution soln =results.nextSolution();
+                                Literal x = soln.getLiteral("parametro");
+                                TextSalida.append(soln.getResource("individuo") + "\t" + x.getString()+"\n");
+			}
+		} finally {
+			qexec.close();
+		}
+        }
+        
+        public static String Filter(String variable, String type, String cond) {
+            String filter = "FILTER ";
+            if (type.equals("=") || type.equals(">") || type.equals(">=") || type.equals("<") || type.equals("<=") || type.equals("!=")) {
+                filter += "(?" + variable + " " + type + " " + cond + ") .";
+                return filter;
+            } else if(type.equals("contain")) {
+                return filter + "regex(?" + variable + ", \"" + cond + "\") .";
+            } else {
+                return "";
+            }
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonInstancias;
