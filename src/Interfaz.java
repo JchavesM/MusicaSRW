@@ -334,10 +334,11 @@ public class Interfaz extends javax.swing.JFrame {
         String entidad = entidadEntrada.getText();
         String instancia = instanciaEntrada.getText();
         
-        String data = "SELECT DISTINCT *" + 
+        String data =   "SELECT DISTINCT *" + 
                         "WHERE { ?x a owl:Class ." + 
                         "?y rdfs:subClassOf ?x ." + 
-                        "?instancia a ?y" + 
+                        "?instancia a ?y ." + 
+                        "?instancia <http://www.musica.org#Apodo> ?apodo" + 
                         "}";
         
         if (entidad.toLowerCase().equals("persona")){
@@ -357,7 +358,7 @@ public class Interfaz extends javax.swing.JFrame {
             "WHERE{" + 
             "?individuo a <http://www.musica.org#"+ entidad +"> ." + 
             "?individuo <http://www.musica.org#"+ instancia +"> ?parametro." + 
-            "FILTER(?parametro="+ atributo +")." + 
+            "FILTER REGEX(?parametro, \"" + atributo + "\")." + 
             "}";
         
         Query2(data);
@@ -544,8 +545,8 @@ public class Interfaz extends javax.swing.JFrame {
 			ResultSet results =qexec.execSelect();
 			while (results.hasNext()){
 				QuerySolution soln =results.nextSolution();
-                                //Literal x = soln.getLiteral("parametro");
-                                TextSalida.append(soln.getResource("instancia") + "\n");
+                                Literal x = soln.getLiteral("apodo");
+                                TextSalida.append(soln.getResource("instancia") + "\t" + x.getString() + "\n");
 			}
 		} finally {
 			qexec.close();
